@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Queue Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏦 Bank Queue Management System</h1>
+        <p>Queue • Priority Queue • Linked List</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Customer Registration -->
+        <section class="card">
+            <h2>Generate Customer Token</h2>
+
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter customer name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="serviceType">Service Type</label>
+                <select id="serviceType">
+                    <option value="Deposit">Deposit</option>
+                    <option value="Withdrawal">Withdrawal</option>
+                    <option value="Account Opening">Account Opening</option>
+                    <option value="Loan Enquiry">Loan Enquiry</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="priority-box">
+                <input type="checkbox" id="priority">
+                <label for="priority">
+                    ⭐ Priority Customer
+                </label>
+            </div>
+
+            <button class="btn primary" onclick="addCustomer()">
+                Generate Token & Add to Queue
+            </button>
+
+            <div id="generatedToken" class="token-display">
+                Token will appear here
+            </div>
+        </section>
+
+
+        <!-- Queue Controls -->
+        <section class="card">
+            <h2>Queue Management</h2>
+
+            <div class="button-group">
+                <button class="btn success" onclick="serveCustomer()">
+                    🎫 Serve Next Customer
+                </button>
+
+                <button class="btn danger" onclick="resetQueue()">
+                    🗑 Reset Queue
+                </button>
+            </div>
+
+            <div id="currentlyServing" class="serving">
+                No customer is currently being served.
+            </div>
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <h3>👥 Waiting</h3>
+                <p id="waitingCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>⭐ Priority</h3>
+                <p id="priorityCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>🎫 Served</h3>
+                <p id="servedCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>🔢 Total</h3>
+                <p id="totalCount">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Waiting Customers -->
+        <section class="card">
+            <div class="section-header">
+                <h2>Waiting Customers</h2>
+                <span id="queueStatus">Queue is empty</span>
+            </div>
+
+            <div id="queueContainer" class="queue-container">
+                <!-- Customers are displayed here -->
+            </div>
+        </section>
+
+
+        <!-- Data Structure Explanation -->
+        <section class="card explanation">
+            <h2>Data Structures Used</h2>
+
+            <div class="structure">
+                <h3>1. Queue</h3>
+                <p>
+                    Regular customers are served using the
+                    <strong>FIFO (First In, First Out)</strong> principle.
+                </p>
+            </div>
+
+            <div class="structure">
+                <h3>2. Priority Queue</h3>
+                <p>
+                    Priority customers are moved ahead of regular customers
+                    and are served first.
+                </p>
+            </div>
+
+            <div class="structure">
+                <h3>3. Linked List</h3>
+                <p>
+                    Each customer is stored inside a linked-list node.
+                    Every node contains customer information and a reference
+                    to the next customer.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Bank Queue Management System © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
